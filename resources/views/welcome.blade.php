@@ -26,14 +26,24 @@
     </h1>
 
     {{-- NOTE x-data --}}
-    <div x-data="{ open: false }">
-        {{-- NOTE @click --}}
-        <button @click="open = true">Expand</button>
+    {{-- NOTE tu definujesz data dostępne w tym alpine component, ta data jest dostępna tylko tutaj --}}
+    <div x-data="{ open: false, name: 'Kamil' }">
+        <div>
+            {{-- NOTE @click --}}
+            <button @click="open = true">Expand</button>
+        </div>
 
-        {{-- NOTE x-show --}}
-        <span x-show="open">
-            Content...
-        </span>
+        <div>
+            {{-- NOTE x-show --}}
+            <span x-show="open">
+                Content...
+            </span>
+        </div>
+
+        <div class="my-4">
+            {{-- NOTE x-text --}}
+            The value of name is: <span x-text="name"></span>
+        </div>
     </div>
 
 </body>
