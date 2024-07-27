@@ -27,15 +27,18 @@
 
     {{-- NOTE x-data --}}
     {{-- NOTE tu definujesz data dostępne w tym alpine component, ta data jest dostępna tylko tutaj --}}
-    <div x-data="{ open: false, name: 'Kamil' }">
+    <div x-data="{ open: false, name: 'Kamil', search: '123' }">
         <div>
             {{-- NOTE @click --}}
-            <button @click="open = true">Expand</button>
+            {{-- NOTE dynamic class x-bind:class --}}
+            {{-- NOTE dynamic class :class --}}
+            <button @click="open = true" :class="open ? 'bg-blue-800' : 'bg-slate-500'">Expand</button>
         </div>
 
         <div>
             {{-- NOTE x-show --}}
-            <span x-show="open">
+            {{-- NOTE x-transition --}}
+            <span x-show="open" x-transition>
                 Content...
             </span>
         </div>
@@ -44,6 +47,29 @@
             {{-- NOTE x-text --}}
             The value of name is: <span x-text="name"></span>
         </div>
+
+        <div>
+            Serach for
+            {{-- NOTE x-model --}}
+            <input type="text" class="border p-2 w-full mb-2 mt-6" x-model="search">
+            <p>Serach for: <span x-text="search"></span></p>
+        </div>
+
+        <div>
+            {{-- NOTE x-if --}}
+            {{-- NOTE musi być 'template' --}}
+            <template x-if="open">
+                <div>
+                    Shows when open
+                </div>
+            </template>
+        </div>
+
+        {{-- NOTE x-for --}}
+        {{-- NOTE x-ref --}}
+        {{-- NOTE $refs --}}
+        {{-- NOTE x-html --}}
+        {{-- NOTE możsez robić await axios.get() w x-html --}}
     </div>
 
 </body>
